@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function post() {
+        let title = document.getElementById('title').value
+        let body = document.getElementById('body').value
+        let token = document.cookie.split('=')[1]
+        let request = new XMLHttpRequest()
+        request.open('POST', '/posts', true)
+        request.setRequestHeader("Content-Type", "application/json");
+        request.setRequestHeader('x-token', token)
+        request.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("response").innerHTML =
+                    "New post was added: \n" + this.responseText;
+            }
+        };
+        request.send(JSON.stringify({ 'title': title, 'body': body }))
+    }
+</script>
+
+
+<body style="flex: 1; text-align: center; justify-content: center; margin: 10">
+    <div>
+        <div>
+            <label>Title</label>
+            <input id="title" name="title">
+        </div>
+        <div>
+            <label>Body</label>
+            <textarea id="body" name="body"></textarea>
+        </div>
+        <button onclick="post()">Create Post</button>
+    </div>
+    <div id="response"></div>
+</body>
+
+</html>

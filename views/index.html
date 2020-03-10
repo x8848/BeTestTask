@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign In</title>
+</head>
+
+<body>
+    <div style="flex: 1; text-align: center; justify-content: center; margin: 10">
+        <form action="/users" method="POST">
+            <div>
+                <label>Name</label>
+                <input name="userName">
+            </div>
+            <div>
+                <label>Password</label>
+                <input name="password">
+            </div>
+            <button>Create User</button>
+        </form>
+        <hr>
+        <form action="/users/auth" method="POST">
+            <div>
+                <label>Name</label>
+                <input name="userName">
+            </div>
+            <div>
+                <label>Password</label>
+                <input name="password">
+            </div>
+            <button>Authenticate</button>
+        </form>
+        <hr>
+        <form action="/users/login" method="POST">
+            <div>
+                <label>Name</label>
+                <input name="userName">
+            </div>
+            <div>
+                <label>Password</label>
+                <input name="password">
+            </div>
+            <button>Login</button>
+        </form>
+    </div>
+</body>
+
+</html>
