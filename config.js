@@ -5,7 +5,7 @@ module.exports = {
   token: 'x-token',
   saltRounds: 10,
   postsLimit: 10,
-  port: 3000,
+  port: process.env.PORT || 3000,
   sequelize: new Sequelize({
     dialect: 'sqlite',
     storage: ':memory:'
